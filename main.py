@@ -329,13 +329,13 @@ class Library:
     def search_book_name(self, title: str):
         if title not in self.books:
             raise HTTPException(status_code=404, detail="Book not found")
-        return self.books[title]+" : This book is currently : "+self.books[title].status
+        return self.books[title].status
 
     def search_book_genre(self, genre: str):
         book_genre=[]
         for books in self.books.values():
             if books.genre == genre:
-                book_genre.append(books)
+                book_genre.append(books.title)
         if not book_genre:
             raise HTTPException(status_code=404, detail="Genre not found")
         return book_genre
@@ -344,10 +344,11 @@ class Library:
         book_lang=[]
         for books in self.books.values():
             if books.language == language:
-                book_lang.append(books)
+                book_lang.append(books.title)
         if not book_lang:
             raise HTTPException(status_code=404, detail="Language not found")
         return book_lang
+
 
     def update_book_status(self, title: str, status: str):
         if title not in self.books:
@@ -368,7 +369,7 @@ class Library:
             raise HTTPException(status_code=404, detail="Book not found")
         if self.books[title].status != "Available":
             raise HTTPException(status_code=400, detail="Book is currently unavailable")
-        self.books[title].status = f"Issued to {student_id}"
+        self.books[title].status = "Issued to",student_id
         return {
             "message": f"{title} has been issued to {student_name} ({student_id}) on {date.today()}",
             "return_date": date.today() + timedelta(days=15)
@@ -391,9 +392,9 @@ async def issue_book(title: str, student_name: str, student_id: str):
     return library.issue_book(title, student_name, student_id)
 
 
-@app.get("/books/{title}/search")
+@app.get("/books/{title}/searchname")
 async def search_book_name(title: str):
-    return library.search_book(title)
+    return library.search_book_name(title)
 
 @app.get("/books/{title}/searchgenre")
 async def search_book_genre(genre: str):
@@ -402,7 +403,6 @@ async def search_book_genre(genre: str):
 @app.get("/books/{title}/searchlanguage")
 async def search_book_language(language: str):
     return library.search_book_language(language)
-
 
 @app.post("/books/{title}/add")
 async def add_book(book: Book):
@@ -422,7 +422,6 @@ async def update_book_status(title: str, status: str):
 @app.get("/books/{title}/details")
 async def view_book_details(title: str):
     return library.view_book_details(title)
-
 
 @app.get("/books/lib")
 async def view_library():
