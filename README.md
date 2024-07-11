@@ -11,7 +11,7 @@ Comprehensive Views: Allows viewing detailed information about books individuall
 
 Technologies and Concepts:
 Database: Utilizes a nested dictionary structure as the database.
-Object-Oriented Programming (OOP): Implements OOP concepts for code organization and scalability.
+Object-Oriented Programming (OOP): Implements OOP concepts for code organization and scalability
 Functions: Incorporates functions to modularize operations within the system.
 
 Implementation Details:
