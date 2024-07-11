@@ -318,24 +318,24 @@ class Library:
         if book.title in self.books:
             raise HTTPException(status_code=400, detail="Book already exists in the library")
         self.books[book.title] = book
-        return book.title, "has been added to the library"
+        return book.title + " has been added to the library"
 
     def delete_book(self, title: str):
         if title not in self.books:
             raise HTTPException(status_code=404, detail="Book not found")
         del self.books[title]
-        return {"message": f"{title} has been deleted from the library"}
+        return title + " has been deleted from the library"
 
-    def search_book(self, title: str):
+    def search_book_name(self, title: str):
         if title not in self.books:
             raise HTTPException(status_code=404, detail="Book not found")
-        return self.books[title]
+        return self.books[title]+" : This book is currently : "+self.books[title].status
 
     def update_book_status(self, title: str, status: str):
         if title not in self.books:
             raise HTTPException(status_code=404, detail="Book not found")
         self.books[title].status = status
-        return {"message": f"The status of {title} has been updated"}
+        return "The status of "+title+" has been updated"
 
     def view_library(self):
         return {"books": list(self.books.values())}
@@ -374,7 +374,7 @@ async def issue_book(title: str, student_name: str, student_id: str):
 
 
 @app.get("/books/{title}/search")
-async def search_book(title: str):
+async def search_book_name(title: str):
     return library.search_book(title)
 
 
