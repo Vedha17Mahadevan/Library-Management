@@ -331,6 +331,24 @@ class Library:
             raise HTTPException(status_code=404, detail="Book not found")
         return self.books[title]+" : This book is currently : "+self.books[title].status
 
+    def search_book_genre(self, genre: str):
+        book_genre=[]
+        for books in self.books.values():
+            if books.genre == genre:
+                book_genre.append(books)
+        if not book_genre:
+            raise HTTPException(status_code=404, detail="Genre not found")
+        return book_genre
+
+    def search_book_language(self, language: str):
+        book_lang=[]
+        for books in self.books.values():
+            if books.language == language:
+                book_lang.append(books)
+        if not book_lang:
+            raise HTTPException(status_code=404, detail="Language not found")
+        return book_lang
+
     def update_book_status(self, title: str, status: str):
         if title not in self.books:
             raise HTTPException(status_code=404, detail="Book not found")
@@ -376,6 +394,14 @@ async def issue_book(title: str, student_name: str, student_id: str):
 @app.get("/books/{title}/search")
 async def search_book_name(title: str):
     return library.search_book(title)
+
+@app.get("/books/{title}/searchgenre")
+async def search_book_genre(genre: str):
+    return library.search_book_genre(genre)
+
+@app.get("/books/{title}/searchlanguage")
+async def search_book_language(language: str):
+    return library.search_book_language(language)
 
 
 @app.post("/books/{title}/add")
