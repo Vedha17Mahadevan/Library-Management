@@ -393,11 +393,11 @@ async def update_book_status(title: str, status: str):
     return library.update_book_status(title, status)
 
 
-@app.get("/books/lib")
-async def view_library():
-    return library.view_library()
-
-
 @app.get("/books/{title}/details")
 async def view_book_details(title: str):
     return library.view_book_details(title)
+
+
+@app.get("/books/lib")
+async def view_library():
+    return library.view_library()
