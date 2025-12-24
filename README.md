@@ -36,7 +36,7 @@ BMI = weight (kg) / [height (m) × height (m)]
 ---
 
 ## 📂 Project Structure
-
+```
 BMI-Calculator/
 │
 ├── index.html # Main HTML file
@@ -46,7 +46,7 @@ BMI-Calculator/
 ├── emoji1.png # Sad emoji
 ├── emoji3.png # Happy emoji
 └── README.md # Project documentation
-
+```
 
 ---
 
@@ -93,4 +93,5 @@ Invalid inputs trigger user-friendly alerts.
 ## 🙌 Author
 
 Developed as a beginner-friendly web project to practice JavaScript DOM manipulation and basic health-related calculations.
+
 
