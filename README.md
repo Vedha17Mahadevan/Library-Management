@@ -93,3 +93,4 @@ Invalid inputs trigger user-friendly alerts.
 ## 🙌 Author
 
 Developed as a beginner-friendly web project to practice JavaScript DOM manipulation and basic health-related calculations.
+
