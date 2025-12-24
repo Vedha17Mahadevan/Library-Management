@@ -1,32 +1,95 @@
-Library Management System
+# 🧮 FitScale – BMI Calculator
 
-This is a straightforward Library Management System designed for Admins/Librarians. It provides essential functionalities such as issuing books, searching for books using various parameters, updating book statuses, adding or deleting books, and viewing detailed information about books or the entire library.
+FitScale is a simple and interactive **Body Mass Index (BMI) Calculator** built using **HTML, CSS, and JavaScript**.  
+It allows users to calculate their BMI based on height and weight and instantly understand their health category through clear text feedback and visual emoji indicators.
 
-Features:
-Book Issuance: Allows users to issue books to patrons.
-Advanced Search: Enables searching for books based on different parameters(e.g., name, genre , language).
-Status Updates: Provides functionality to update the status of books (e.g., available, unavailable, borrowed).
-Book Management: Includes features to add new books to the system or remove existing ones.
-Comprehensive Views: Allows viewing detailed information about books individually or the entire library.
+---
 
-Technologies and Concepts:
-Database: Utilizes a nested dictionary structure as the database.
-Object-Oriented Programming (OOP): Implements OOP concepts for code organization and scalability
-Functions: Incorporates functions to modularize operations within the system.
+## ✨ Features
 
-Implementation Details:
-Framework: Developed using fastAPI.
-IDE: Implemented in PyCharm for ease of development and debugging.
+- 📊 Calculates BMI using the standard **metric formula**
+- 🧑 Collects basic user details (Name, Age, Gender)
+- 😊 Visual health indication using emojis
+- 🧠 Categorizes BMI into:
+  - Underweight
+  - Normal weight
+  - Overweight / Obese
+- 📱 Responsive and clean UI
+- ⚡ Lightweight and runs entirely in the browser (no backend)
 
-Usage:
-Install Dependencies:
-  pip install -r requirements.txt
-Run the Application: 
-  uvicorn main:app --reload
-Access the API:
-  Open your browser and go to http://localhost:8000/docs to view and interact with the API using Swagger UI.
+---
 
-Contributing:
+## 🧮 BMI Formula Used
+
+**Metric System:**
+BMI = weight (kg) / [height (m) × height (m)]
 
 
-License:
+---
+
+## 🛠️ Tech Stack
+
+- **HTML5** – Structure and layout  
+- **CSS3** – Styling and responsive design  
+- **JavaScript (Vanilla)** – Logic, validation, and interactivity  
+
+---
+
+## 📂 Project Structure
+
+BMI-Calculator/
+│
+├── index.html # Main HTML file
+├── styles.css # Styling
+├── script.js # BMI logic and validation
+├── logo.jpeg # App logo
+├── emoji1.png # Sad emoji
+├── emoji3.png # Happy emoji
+└── README.md # Project documentation
+
+
+---
+
+## 🚀 How to Run the Project
+
+1. Clone the repository or download the ZIP  
+2. Open `index.html` in any modern web browser  
+3. Enter your details and click **Calculate BMI**
+
+No installation required.
+
+---
+
+## 📸 App Overview
+
+The application displays:
+- Calculated BMI value
+- Health category description
+- Emoji-based visual feedback
+- BMI classification chart for reference
+
+---
+
+## ✅ Input Validation
+
+The app ensures:
+- Name and gender are not empty
+- Age, height, and weight are valid numbers
+- All values are positive
+
+Invalid inputs trigger user-friendly alerts.
+
+---
+
+## 🌱 Future Enhancements
+
+- Support for **Imperial units (lbs, ft/in)**
+- Personalized health suggestions
+- Mobile UI improvements
+- BMI history using local storage
+
+---
+
+## 🙌 Author
+
+Developed as a beginner-friendly web project to practice JavaScript DOM manipulation and basic health-related calculations.
